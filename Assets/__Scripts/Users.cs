@@ -11,7 +11,6 @@ public class Users : MonoBehaviour {
 	void Start () {
         string path = Application.streamingAssetsPath + "/userData.json";
         string jsonString = File.ReadAllText(path);
-        Debug.Log(jsonString);
         userData data = JsonUtility.FromJson<userData>(jsonString);
         foreach (UserObject user in data.Users)
         {
@@ -41,7 +40,7 @@ public class Users : MonoBehaviour {
     
     void Awake()
     {
-        Debug.Log("Awoken");
+
     }
 }
 
@@ -90,6 +89,12 @@ public class User
     public string Password
     {
         get { return this.password; }
+    }
+
+    public string Status
+    {
+        get { return this.status; }
+        set { this.status = value; }
     }
 }
 
