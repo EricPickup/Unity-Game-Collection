@@ -67,6 +67,7 @@
      <Compile Include="Assets\__Scripts\Settings.cs" />
      <Compile Include="Assets\__Scripts\Shield.cs" />
      <Compile Include="Assets\__Scripts\TitleScreenController.cs" />
+     <Compile Include="Assets\__Scripts\Users.cs" />
      <Compile Include="Assets\__Scripts\Utils.cs" />
      <Compile Include="Assets\__Scripts\Weapon.cs" />
      <None Include="Assets\_Materials\UnlitAlpha.shader" />

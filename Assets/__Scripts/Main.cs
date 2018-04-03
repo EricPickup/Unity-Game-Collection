@@ -164,6 +164,7 @@ public class Main : MonoBehaviour {
         restartButton.SetActive(false);
     }
 
+
 	void Update() {
 
 		if(currLvl.getScoreValue() <= score && lvl != GOLD){

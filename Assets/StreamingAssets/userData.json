@@ -1,0 +1,22 @@
+{
+  "Users": [
+    {
+      "Username": "User1",
+      "Password": "1234",
+      "Score": 100,
+      "Status": "normal"
+    },
+    {
+      "Username": "User2",
+      "Password": "abc",
+      "Score": 2,
+      "Status": "new"
+    },
+    {
+      "Username": "User3",
+      "Password": "password",
+      "Score": 4,
+      "Status": "blocked"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ public class LoginMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+	    	
 	}
 	
 	// Update is called once per frame
@@ -21,33 +21,14 @@ public class LoginMenu : MonoBehaviour {
 
     public void ValidateLogin()
     {
-        //validatelogin
-        if (usernameField.text == "Hello")
+        if (Users.ContainsUser(usernameField.text))
         {
-            Debug.Log("Valid");
-        } else
-        {
-            Debug.Log("Invalid");
+            Debug.Log("Found user");
+            User attemptUser = Users.GetUser(usernameField.text);
+            if (attemptUser.Password == passwordField.text)
+            {
+                Debug.Log("Valid login");
+            }
         }
     }
-}
-
-public class User
-{
-    string username;
-    string password;
-    string status;
-
-    public User(string name)
-    {
-        
-    }
-}
-
-public class GameLog
-{
-    DateTime date;
-    int score;
-    string sessionLength;
-    int highestLevel;   //Spaceshooter game only
 }
