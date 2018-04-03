@@ -4,6 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: [{enabled: 1, path: Assets/_Scenes/_Main_Menu_Scene.unity, guid: e6fbb95e18e254fa389d034d9aacb7d9},
-    {enabled: 1, path: Assets/_Scenes/_Scene_0.unity, guid: 925fdbd73155b49529478244b15754c4},
-    {enabled: 1, path: Assets/_Scenes/_Main_Menu_Scene.unity, guid: e6fbb95e18e254fa389d034d9aacb7d9}]
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/SpaceShooter/_Main_Menu_Scene.unity
+    guid: e6fbb95e18e254fa389d034d9aacb7d9
+  - enabled: 1
+    path: Assets/_Scenes/SpaceShooter/_Scene_0.unity
+    guid: 925fdbd73155b49529478244b15754c4
+  - enabled: 1
+    path: Assets/_Scenes/SpaceShooter/_Main_Menu_Scene.unity
+    guid: e6fbb95e18e254fa389d034d9aacb7d9
+  - enabled: 1
+    path: Assets/_Scenes/_Package_Menu.unity
+    guid: dc77d52335f648a44bfb6c64db728df5
+  - enabled: 1
+    path: Assets/_Scenes/MemoryGame/Menu.unity
+    guid: c330b20583cb2324ea0be1234a0abab2
+  - enabled: 1
+    path: Assets/_Scenes/MemoryGame/Level.unity
+    guid: 802b0f09a75e631459edac3f6702ee8b
