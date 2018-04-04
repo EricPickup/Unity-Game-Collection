@@ -13,9 +13,15 @@ public class Users : MonoBehaviour {
         string path = Application.streamingAssetsPath + "/userData.json";
         string jsonString = File.ReadAllText(path);
         userData data = JsonUtility.FromJson<userData>(jsonString);
-        foreach (UserObject user in data.Users)
+        
+        foreach (User user in data.Users)
         {
-            users.Add(user.Username, new User(user.Username, user.Password, user.Score, user.Status));
+            users.Add(user.Username, user);
+            Debug.Log(user.Username);
+            foreach (SessionLogObject session in user.Logins)
+            {
+                Debug.Log("Length: " + session.Length + "\t Time: " + session.Time);
+            }
             
         }
         DumpUsers();
@@ -73,27 +79,17 @@ public class Users : MonoBehaviour {
         userData newUsers = new userData();
         string path = Application.streamingAssetsPath + "/userData.json";
         foreach (User user in users.Values)
-        {
-            UserObject currentUser;
-            currentUser.Username = user.username;
-            Debug.Log("Dumping user: " + user.username);
-            currentUser.Password = user.password;
-            currentUser.Score = user.score;
-            currentUser.Status = user.status;
-            newUsers.Add(currentUser);
+        { 
+            newUsers.Add(user);
         }
         Debug.Log(JsonUtility.ToJson(newUsers));
         File.WriteAllText(path, JsonUtility.ToJson(newUsers));
-
     }
 
     public static Dictionary<string,User> GetUsers()
     {
         return users;
     }
-
-    
-
 
     public static User CurrentUser
     {
@@ -117,22 +113,20 @@ public class Users : MonoBehaviour {
     }
 }
 
-[System.Serializable]
-public struct UserObject
-{
-    public string Username;
-    public string Password;
-    public int Score;
-    public string Status;
 
+[System.Serializable]
+public struct SessionLogObject
+{
+    public int Length;
+    public string Time;
 }
 
 [System.Serializable]
 public class userData
 {
-    public List<UserObject> Users = new List<UserObject>();
+    public List<User> Users = new List<User>();
 
-    public void Add(UserObject user)
+    public void Add(User user)
     {
         Users.Add(user);
     }
@@ -141,10 +135,11 @@ public class userData
 [System.Serializable]
 public class User
 {
-    string Username;
-    string Password;
-    int Score;
-    string Status;
+    public string Username;
+    public string Password;
+    public int Score;
+    public string Status;
+    public List<SessionLogObject> Logins = new List<SessionLogObject>();
 
     public User(string name)
     {

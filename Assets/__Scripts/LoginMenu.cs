@@ -14,6 +14,8 @@ public class LoginMenu : MonoBehaviour {
     public Canvas LoginCanvas;
     public Canvas PackageCanvas;
 
+    public AudioSource ButtonClickSound;
+
     Dictionary<string, int> loginViolations = new Dictionary<string, int>();
 
     // Use this for initialization
@@ -29,6 +31,7 @@ public class LoginMenu : MonoBehaviour {
 
     public void ValidateLogin()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         if (Users.ContainsUser(usernameField.text))
         {
             User attemptUser = Users.GetUser(usernameField.text);

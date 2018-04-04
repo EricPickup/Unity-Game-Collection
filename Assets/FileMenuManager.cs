@@ -41,6 +41,10 @@ public class FileMenuManager : MonoBehaviour {
     public Dropdown MusicDropdown;
     public AudioClip[] BackgroundMusic;
     public AudioSource CurrentSong;
+    public Image PreviewImage;
+    public Button ChangeBackgroundButton;
+
+    public AudioSource ButtonClickSound;
     
 
     public static Stack<Canvas> canvasHistory = new Stack<Canvas>();  //Keeps track of canvas history so we don't need back button functions for each canvas
@@ -56,7 +60,11 @@ public class FileMenuManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Background.sprite = Sprites[BackgroundDropdown.value];
+        PreviewImage.sprite = Sprites[BackgroundDropdown.value];
+        if (!(Sprites[BackgroundDropdown.value].Equals(PreviewImage.sprite)))
+        {
+            PreviewImage.sprite = Sprites[BackgroundDropdown.value];
+        }
         if (!(BackgroundMusic[MusicDropdown.value].Equals(CurrentSong.clip)))
         {
             CurrentSong.clip = BackgroundMusic[MusicDropdown.value];
@@ -66,6 +74,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void AccountMenuClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         canvasHistory.Push(FileCanvas);
         HideAllCanvas();
         AccountCanvas.gameObject.SetActive(true);
@@ -80,6 +89,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void ChangePasswordMenuClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         canvasHistory.Push(AccountCanvas);
         HideAllCanvas();
         PasswordCanvas.gameObject.SetActive(true);
@@ -87,6 +97,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void CreateUserMenuClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         canvasHistory.Push(AccountCanvas);
         HideAllCanvas();
         NewUserCanvas.gameObject.SetActive(true);
@@ -94,6 +105,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void DeleteUserMenuClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         canvasHistory.Push(AccountCanvas);
         HideAllCanvas();
         DeleteUserCanvas.gameObject.SetActive(true);
@@ -106,6 +118,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void UnblockUserMenuClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         canvasHistory.Push(AccountCanvas);
         HideAllCanvas();
         UnblockUserCanvas.gameObject.SetActive(true);
@@ -122,6 +135,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void ChangePassword()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         if (NewPasswordField.text != "")
         {
             Users.ChangePassword(NewPasswordField.text);
@@ -136,6 +150,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void CreateUser()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         if (Users.ContainsUser(NewUserField.text))
         {
             NewUserStatus.color = Color.red;
@@ -154,6 +169,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void DeleteUser()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         string selectedUser = UserList.options[UserList.value].text;
         if (selectedUser == "admin")
         {
@@ -164,11 +180,19 @@ public class FileMenuManager : MonoBehaviour {
             Users.DeleteUser(selectedUser);
             DeleteUserStatus.color = Color.green;
             DeleteUserStatus.text = "Deleted user.";
+            UserList.options.Remove(UserList.options[UserList.value]);
+            UserList.value = 0;
         }
+    }
+
+    public void ChangeBackground()
+    {
+        Background.sprite = Sprites[BackgroundDropdown.value];
     }
 
     public void ConfigurationMenuClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         canvasHistory.Push(FileCanvas);
         HideAllCanvas();
         ConfigurationCanvas.gameObject.SetActive(true);
@@ -176,6 +200,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void UnblockUser()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         Users.UnblockUser(BlockedList.options[BlockedList.value].text);
         UnblockUserStatus.color = Color.green;
         UnblockUserStatus.text = "Unblocked user.";
@@ -185,6 +210,7 @@ public class FileMenuManager : MonoBehaviour {
 
     public void BackToFileButtonClick()
     {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         HideAllCanvas();
         canvasHistory.Pop().gameObject.SetActive(true);
     }
