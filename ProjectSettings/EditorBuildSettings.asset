@@ -23,3 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/MemoryGame/Level.unity
     guid: 802b0f09a75e631459edac3f6702ee8b
+  - enabled: 1
+    path: Assets/_Scenes/ApplePicker/_Scene_0.unity
+    guid: 42f1861a280858144ae6db7dc9553100
+  - enabled: 1
+    path: Assets/_Scenes/RPS/104555011_RockPaperScissor.unity
+    guid: 1deac5ad88e05774a95c74e50efe54b6
+  - enabled: 1
+    path: Assets/_Scenes/_File_Menu.unity
+    guid: 0a741ce54a263144485f58878061cd1e

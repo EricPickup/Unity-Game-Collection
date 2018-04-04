@@ -5,7 +5,8 @@ using UnityEngine;
 using System.IO;
 public class Users : MonoBehaviour {
 
-    static Hashtable users = new Hashtable();    //Key: Name (String), Value: User Object
+    static Dictionary<string, User> users = new Dictionary<string, User>();    //Key: Name (String), Value: User Object
+    static User currentUser = null;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,9 @@ public class Users : MonoBehaviour {
         foreach (UserObject user in data.Users)
         {
             users.Add(user.Username, new User(user.Username, user.Password, user.Score, user.Status));
-        }    
+            
+        }
+        DumpUsers();
     }
 
     public static Boolean ContainsUser(string name)
@@ -25,7 +28,77 @@ public class Users : MonoBehaviour {
 
     public static User GetUser(string name)
     {
-        return (User)users[name];
+        return users[name];
+        
+    }
+
+    
+
+    public static void AddUser(string name)
+    {
+        users.Add(name, new User(name));
+        DumpUsers();
+    }
+
+    public static void DeleteUser(string name)
+    {
+        users.Remove(name);
+        DumpUsers();
+    }
+
+    public static void UnblockUser(string name)
+    {
+        users[name].status = "normal";
+        DumpUsers();
+    }
+
+    public static void BlockUser(string name)
+    {
+        users[name].status = "blocked";
+        DumpUsers();
+    }
+
+
+    public static void ChangePassword(string newPassword)
+    {
+        if (CurrentUser != null)
+        {
+            users[CurrentUser.username].password = newPassword;
+        }
+        DumpUsers();
+    }
+
+    public static void DumpUsers()
+    {
+        userData newUsers = new userData();
+        string path = Application.streamingAssetsPath + "/userData.json";
+        foreach (User user in users.Values)
+        {
+            UserObject currentUser;
+            currentUser.Username = user.username;
+            Debug.Log("Dumping user: " + user.username);
+            currentUser.Password = user.password;
+            currentUser.Score = user.score;
+            currentUser.Status = user.status;
+            newUsers.Add(currentUser);
+        }
+        Debug.Log(JsonUtility.ToJson(newUsers));
+        File.WriteAllText(path, JsonUtility.ToJson(newUsers));
+
+    }
+
+    public static Dictionary<string,User> GetUsers()
+    {
+        return users;
+    }
+
+    
+
+
+    public static User CurrentUser
+    {
+        get { return currentUser; }
+        set { currentUser = value; }
     }
 	
 	// Update is called once per frame
@@ -51,50 +124,66 @@ public struct UserObject
     public string Password;
     public int Score;
     public string Status;
+
 }
 
 [System.Serializable]
 public class userData
 {
-    public List<UserObject> Users;
+    public List<UserObject> Users = new List<UserObject>();
+
+    public void Add(UserObject user)
+    {
+        Users.Add(user);
+    }
 }
 
+[System.Serializable]
 public class User
 {
-    string username;
-    string password;
-    int score;
-    string status;
+    string Username;
+    string Password;
+    int Score;
+    string Status;
+
     public User(string name)
     {
-        this.username = name;
-        this.password = "password";
-        this.score = 0;
-        this.status = "new";
+        this.Username = name;
+        this.Password = "password";
+        this.Score = 0;
+        this.Status = "new";
     }
 
     public User(string name, string password, int score, string status)
     {
-        this.username = name;
-        this.password = password;
-        this.score = score;
-        this.status = status;
+        this.Username = name;
+        this.Password = password;
+        this.Score = score;
+        this.Status = status;
     }
 
-    public string Username
+    public string username
     {
-        get { return this.username; }
+        get { return this.Username; }
+        set { this.Username = value; }
     }
 
-    public string Password
+    public string password
     {
-        get { return this.password; }
+        get { return this.Password; }
+        set { this.Password = value; }
     }
 
-    public string Status
+    public string status
     {
-        get { return this.status; }
-        set { this.status = value; }
+        get { return this.Status; }
+        set { this.Status = value; }
+    }
+
+    public int score
+    {
+        get { return this.Score; }
+        set { this.Score = value; }
     }
 }
 

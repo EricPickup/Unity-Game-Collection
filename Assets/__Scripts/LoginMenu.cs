@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LoginMenu : MonoBehaviour {
 
@@ -10,12 +11,16 @@ public class LoginMenu : MonoBehaviour {
     public Text passwordField;
     public Text warningText;
 
+    public Canvas LoginCanvas;
+    public Canvas PackageCanvas;
+
     Dictionary<string, int> loginViolations = new Dictionary<string, int>();
 
     // Use this for initialization
     void Start () {
-	    	
-	}
+
+        LoginCanvas.gameObject.SetActive(true);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,32 +32,39 @@ public class LoginMenu : MonoBehaviour {
         if (Users.ContainsUser(usernameField.text))
         {
             User attemptUser = Users.GetUser(usernameField.text);
-            if (attemptUser.Status == "blocked")
+            if (attemptUser.status == "blocked")
             {
-                warningText.color = Color.red;
                 warningText.text = "User is blocked from signing in!";
-            } else if (attemptUser.Password == passwordField.text)
+            } else if (attemptUser.password == passwordField.text)  //Success
             {
-                warningText.color = Color.green;
-                warningText.text = "Successfully logged in";
+                Users.CurrentUser = Users.GetUser(usernameField.text);
+                
+                LoginCanvas.gameObject.SetActive(false);
+                PackageCanvas.gameObject.SetActive(true);
+
+
             } else
             {
-                int remainingAttempts = addViolation(usernameField.text);
-                if (remainingAttempts == 0)
+                if (usernameField.text != "admin")  //Don't block admin
                 {
-                    warningText.color = Color.red;
-                    warningText.text = "Too many invalid attempts, account is now blocked!";
-                    attemptUser.Status = "blocked";
-                    
+                    int remainingAttempts = addViolation(usernameField.text);
+                    if (remainingAttempts == 0)
+                    {
+                        warningText.text = "Too many invalid attempts, account is now blocked!";
+                        Users.BlockUser(attemptUser.username);
+
+                    }
+                    else
+                    {
+                        warningText.text = "Invalid password: Account will be blocked after " + remainingAttempts + " more invalid attempts";
+                    }
                 } else
                 {
-                    warningText.color = Color.red;
-                    warningText.text = "Invalid password: Account will be blocked after " + remainingAttempts + " more invalid attempts";
+                    warningText.text = "Invalid password";
                 }
             }
         } else
         {
-            warningText.color = Color.red;
             warningText.text = "User does not exist";
         }
     }

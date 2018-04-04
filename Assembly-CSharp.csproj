@@ -51,12 +51,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\__Scripts\ApplePicker\Apple.cs" />
+     <Compile Include="Assets\__Scripts\ApplePicker\ApplePicker.cs" />
+     <Compile Include="Assets\__Scripts\ApplePicker\AppleTree.cs" />
+     <Compile Include="Assets\__Scripts\ApplePicker\Basket.cs" />
+     <Compile Include="Assets\__Scripts\ApplePicker\HighScore.cs" />
      <Compile Include="Assets\__Scripts\LoginMenu.cs" />
      <Compile Include="Assets\__Scripts\MemoryGame\ButtonClickSound.cs" />
      <Compile Include="Assets\__Scripts\MemoryGame\Card.cs" />
      <Compile Include="Assets\__Scripts\MemoryGame\GameManager.cs" />
      <Compile Include="Assets\__Scripts\MemoryGame\MenuBehaviour.cs" />
      <Compile Include="Assets\__Scripts\PackageMenu.cs" />
+     <Compile Include="Assets\__Scripts\RPS\PackageManager.cs" />
      <Compile Include="Assets\__Scripts\SpaceShooter\BoundsCheck.cs" />
      <Compile Include="Assets\__Scripts\SpaceShooter\Enemy.cs" />
      <Compile Include="Assets\__Scripts\SpaceShooter\Enemy_1.cs" />
@@ -75,6 +81,7 @@
      <Compile Include="Assets\__Scripts\SpaceShooter\Utils.cs" />
      <Compile Include="Assets\__Scripts\SpaceShooter\Weapon.cs" />
      <Compile Include="Assets\__Scripts\Users.cs" />
+     <Compile Include="Assets\FileMenuManager.cs" />
      <None Include="Assets\_Materials\SpaceShooter\UnlitAlpha.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

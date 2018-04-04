@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PackageMenu : MonoBehaviour {
 
+    public Canvas FileCanvas;
+    public Canvas PackageCanvas;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,5 +26,22 @@ public class PackageMenu : MonoBehaviour {
     public void MemoryGameClick()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void ApplePickerClick()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void RPSClick()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void FileClick()
+    {
+        FileMenuManager.canvasHistory.Push(PackageCanvas);
+        PackageCanvas.gameObject.SetActive(false);
+        FileCanvas.gameObject.SetActive(true);
     }
 }

@@ -495,8 +495,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ValidateLogin
+      - m_Target: {fileID: 768200644}
+        m_MethodName: FileClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -756,8 +756,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ValidateLogin
+      - m_Target: {fileID: 768200644}
+        m_MethodName: ApplePickerClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1386,8 +1386,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ValidateLogin
+      - m_Target: {fileID: 768200644}
+        m_MethodName: RPSClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
