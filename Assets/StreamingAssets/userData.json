@@ -49,6 +49,10 @@
         {
           "Length": "4.0",
           "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "183.32s",
+          "Time": "4/4/2018 4:32:09 PM"
         }
       ]
     },
@@ -81,6 +85,18 @@
         {
           "Length": "8.0",
           "Time": "4/4/2018 2:33:10 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Test",
+      "Password": "password",
+      "Score": 0,
+      "Status": "new",
+      "Logins": [
+        {
+          "Length": "7.08",
+          "Time": "4/4/2018 3:20:42 PM"
         }
       ]
     }

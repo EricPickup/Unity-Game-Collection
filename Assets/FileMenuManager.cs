@@ -45,6 +45,9 @@ public class FileMenuManager : MonoBehaviour {
     public Button ChangeBackgroundButton;
 
     public AudioSource ButtonClickSound;
+
+    public Canvas HistoryCanvas;
+    public Dropdown HistoryDropdown;
     
 
     public static Stack<Canvas> canvasHistory = new Stack<Canvas>();  //Keeps track of canvas history so we don't need back button functions for each canvas
@@ -52,14 +55,13 @@ public class FileMenuManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-
-        HideAllCanvas();
+        //HideAllCanvas();
         CurrentSong.Play();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    // Update is called once per frame
+    void Update () {
         PreviewImage.sprite = Sprites[BackgroundDropdown.value];
         if (!(Sprites[BackgroundDropdown.value].Equals(PreviewImage.sprite)))
         {
@@ -129,6 +131,51 @@ public class FileMenuManager : MonoBehaviour {
             {
                 Debug.Log("Added user to blocked list");
                 BlockedList.options.Add(new Dropdown.OptionData() { text = user.username });
+            }
+        }
+    }
+
+    public void HistoryMenuClick()
+    {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
+        canvasHistory.Push(FileCanvas);
+        HideAllCanvas();
+        HistoryDropdown.ClearOptions();
+        if (Users.CurrentUser == null || Users.CurrentUser.username == "admin")
+        {
+            LoadHistoryDropdownAdmin();
+        } else
+        {
+            LoadHistoryDropdown();
+        }
+        HistoryCanvas.gameObject.SetActive(true);
+        HistoryDropdown.Show();
+
+    }
+
+    public void LoadHistoryDropdown()
+    {
+        string header = string.Format("{0,-20}{1,-30}{2,-20}", "Username", "Date", "Length");
+        HistoryDropdown.options.Add(new Dropdown.OptionData() { text = header });
+
+        foreach (SessionLogObject session in Users.CurrentUser.Logins)
+        {
+            string currentLog = string.Format("{0,-20}{1,-30}{2,-20}", Users.CurrentUser.username, session.Time, session.Length);
+            HistoryDropdown.options.Add(new Dropdown.OptionData() { text = currentLog });
+        }
+
+    }
+
+    public void LoadHistoryDropdownAdmin()
+    {
+        string header = string.Format("{0,-20}{1,-30}{2,-20}{3,-20}", "Username", "Date", "Length", "Status");
+        HistoryDropdown.options.Add(new Dropdown.OptionData() { text = header });
+        foreach (User user in Users.GetUsers().Values)
+        {
+            foreach (SessionLogObject session in user.Logins)
+            {
+                string currentLog = string.Format("{0,-20}{1,-30}{2,-20}{3,-20}", user.username, session.Time, session.Length, user.status);
+                HistoryDropdown.options.Add(new Dropdown.OptionData() { text = currentLog });
             }
         }
     }
@@ -225,5 +272,6 @@ public class FileMenuManager : MonoBehaviour {
         UnblockUserCanvas.gameObject.SetActive(false);
         PackageCanvas.gameObject.SetActive(false);
         ConfigurationCanvas.gameObject.SetActive(false);
+        HistoryCanvas.gameObject.SetActive(false);
     }
 }

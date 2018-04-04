@@ -21,7 +21,7 @@ public class LoginMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        LoginCanvas.gameObject.SetActive(true);
+        //LoginCanvas.gameObject.SetActive(true);
     }
 	
 	// Update is called once per frame

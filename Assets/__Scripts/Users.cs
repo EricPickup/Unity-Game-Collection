@@ -121,7 +121,7 @@ public class SessionLogObject
     public string Time;
     public SessionLogObject()
     {
-        this.Length = System.String.Format("{0:0.00}", UnityEngine.Time.time - Users.currentUserStartTime);
+        this.Length = System.String.Format("{0:0.00}s", UnityEngine.Time.time - Users.currentUserStartTime);
         this.Time = System.DateTime.Now.ToString(); 
     }
 }
