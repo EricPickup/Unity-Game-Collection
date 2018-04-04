@@ -1,1 +1,88 @@
-{"Users":[{"Username":"admin","Password":"admin","Score":5,"Status":"normal","Logins":[{"Length":1,"Time":"4/4/2018 2:33:10 PM"},{"Length":2,"Time":"4/4/2018 2:33:10 PM"}]},{"Username":"Eric","Password":"password","Score":0,"Status":"normal","Logins":[{"Length":3,"Time":"4/4/2018 2:33:10 PM"},{"Length":4,"Time":"4/4/2018 2:33:10 PM"}]},{"Username":"Abdul","Password":"password","Score":0,"Status":"normal","Logins":[{"Length":5,"Time":"4/4/2018 2:33:10 PM"},{"Length":6,"Time":"4/4/2018 2:33:10 PM"}]},{"Username":"Parker","Password":"password","Score":0,"Status":"new","Logins":[{"Length":7,"Time":"4/4/2018 2:33:10 PM"},{"Length":8,"Time":"4/4/2018 2:33:10 PM"}]}]}
+{
+  "Users": [
+    {
+      "Username": "admin",
+      "Password": "admin",
+      "Score": 5,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "1.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "2.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "13.39",
+          "Time": "4/4/2018 2:59:12 PM"
+        },
+        {
+          "Length": "9.53",
+          "Time": "4/4/2018 2:59:38 PM"
+        },
+        {
+          "Length": "5.82",
+          "Time": "4/4/2018 3:01:00 PM"
+        },
+        {
+          "Length": "49.51",
+          "Time": "4/4/2018 3:10:28 PM"
+        },
+        {
+          "Length": "79.83",
+          "Time": "4/4/2018 3:11:34 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Eric",
+      "Password": "newpassword",
+      "Score": 0,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "3.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "4.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Abdul",
+      "Password": "password",
+      "Score": 0,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "5.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "6.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Parker",
+      "Password": "password",
+      "Score": 0,
+      "Status": "new",
+      "Logins": [
+        {
+          "Length": "17.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "8.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        }
+      ]
+    }
+  ]
+}

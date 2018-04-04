@@ -7,9 +7,10 @@ public class Users : MonoBehaviour {
 
     static Dictionary<string, User> users = new Dictionary<string, User>();    //Key: Name (String), Value: User Object
     static User currentUser = null;
+    public static float currentUserStartTime;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         string path = Application.streamingAssetsPath + "/userData.json";
         string jsonString = File.ReadAllText(path);
         userData data = JsonUtility.FromJson<userData>(jsonString);
@@ -22,7 +23,6 @@ public class Users : MonoBehaviour {
             {
                 Debug.Log("Length: " + session.Length + "\t Time: " + session.Time);
             }
-            
         }
         DumpUsers();
     }
@@ -115,10 +115,15 @@ public class Users : MonoBehaviour {
 
 
 [System.Serializable]
-public struct SessionLogObject
+public class SessionLogObject
 {
-    public int Length;
+    public string Length;
     public string Time;
+    public SessionLogObject()
+    {
+        this.Length = System.String.Format("{0:0.00}", UnityEngine.Time.time - Users.currentUserStartTime);
+        this.Time = System.DateTime.Now.ToString(); 
+    }
 }
 
 [System.Serializable]

@@ -41,7 +41,7 @@ public class LoginMenu : MonoBehaviour {
             } else if (attemptUser.password == passwordField.text)  //Success
             {
                 Users.CurrentUser = Users.GetUser(usernameField.text);
-                
+                Users.currentUserStartTime = Time.time;
                 LoginCanvas.gameObject.SetActive(false);
                 PackageCanvas.gameObject.SetActive(true);
 

@@ -50,4 +50,11 @@ public class PackageMenu : MonoBehaviour {
         PackageCanvas.gameObject.SetActive(false);
         FileCanvas.gameObject.SetActive(true);
     }
+
+    public void ExitClick()
+    {
+        Users.CurrentUser.Logins.Add(new SessionLogObject());
+        Users.DumpUsers();
+        Debug.Log("Added logout");
+    }
 }
