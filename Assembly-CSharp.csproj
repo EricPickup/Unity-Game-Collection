@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\__Scripts\ApplePicker\Apple.cs" />
      <Compile Include="Assets\__Scripts\ApplePicker\ApplePicker.cs" />
+     <Compile Include="Assets\__Scripts\ApplePicker\ApplePickerMenu.cs" />
      <Compile Include="Assets\__Scripts\ApplePicker\AppleTree.cs" />
      <Compile Include="Assets\__Scripts\ApplePicker\Basket.cs" />
      <Compile Include="Assets\__Scripts\ApplePicker\HighScore.cs" />

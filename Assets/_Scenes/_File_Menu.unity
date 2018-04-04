@@ -4282,6 +4282,8 @@ MonoBehaviour:
   warningText: {fileID: 1177773233}
   LoginCanvas: {fileID: 121065719}
   PackageCanvas: {fileID: 547362571}
+  ChangePasswordCanvas: {fileID: 494518037}
+  ChangePasswordText: {fileID: 89592519}
   ButtonClickSound: {fileID: 1886526867}
 --- !u!114 &782761500
 MonoBehaviour:

@@ -57,6 +57,8 @@ public class FileMenuManager : MonoBehaviour {
 
         //HideAllCanvas();
         CurrentSong.Play();
+        //Exiting a game will trigger Start() function again, skip login if this occurs
+       
 
     }
     
@@ -273,5 +275,6 @@ public class FileMenuManager : MonoBehaviour {
         PackageCanvas.gameObject.SetActive(false);
         ConfigurationCanvas.gameObject.SetActive(false);
         HistoryCanvas.gameObject.SetActive(false);
+        
     }
 }

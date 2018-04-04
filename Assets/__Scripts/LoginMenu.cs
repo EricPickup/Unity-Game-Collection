@@ -24,6 +24,11 @@ public class LoginMenu : MonoBehaviour {
     void Start () {
 
         //LoginCanvas.gameObject.SetActive(true);
+        if (Users.CurrentUser != null)
+        {
+            LoginCanvas.gameObject.SetActive(false);
+            PackageCanvas.gameObject.SetActive(true);
+        }
     }
 	
 	// Update is called once per frame

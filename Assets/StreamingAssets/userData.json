@@ -1,1 +1,163 @@
-{"Users":[{"Username":"admin","Password":"admin","Score":5,"Status":"normal","Logins":[{"Length":"1.0","Time":"4/4/2018 2:33:10 PM"},{"Length":"2.0","Time":"4/4/2018 2:33:10 PM"},{"Length":"13.39","Time":"4/4/2018 2:59:12 PM"},{"Length":"9.53","Time":"4/4/2018 2:59:38 PM"},{"Length":"5.82","Time":"4/4/2018 3:01:00 PM"},{"Length":"49.51","Time":"4/4/2018 3:10:28 PM"},{"Length":"79.83","Time":"4/4/2018 3:11:34 PM"},{"Length":"26.99s","Time":"4/4/2018 4:44:16 PM"},{"Length":"9.35s","Time":"4/4/2018 4:49:13 PM"},{"Length":"9.50s","Time":"4/4/2018 4:49:13 PM"},{"Length":"9.69s","Time":"4/4/2018 4:49:13 PM"},{"Length":"9.84s","Time":"4/4/2018 4:49:13 PM"},{"Length":"9.97s","Time":"4/4/2018 4:49:13 PM"},{"Length":"10.11s","Time":"4/4/2018 4:49:13 PM"},{"Length":"10.24s","Time":"4/4/2018 4:49:14 PM"},{"Length":"10.71s","Time":"4/4/2018 4:49:14 PM"},{"Length":"10.89s","Time":"4/4/2018 4:49:14 PM"},{"Length":"11.06s","Time":"4/4/2018 4:49:14 PM"}]},{"Username":"Eric","Password":"newpassword","Score":0,"Status":"normal","Logins":[{"Length":"3.0","Time":"4/4/2018 2:33:10 PM"},{"Length":"4.0","Time":"4/4/2018 2:33:10 PM"},{"Length":"183.32s","Time":"4/4/2018 4:32:09 PM"}]},{"Username":"Abdul","Password":"password","Score":0,"Status":"normal","Logins":[{"Length":"5.0","Time":"4/4/2018 2:33:10 PM"},{"Length":"6.0","Time":"4/4/2018 2:33:10 PM"}]},{"Username":"Parker","Password":"password","Score":0,"Status":"new","Logins":[{"Length":"17.0","Time":"4/4/2018 2:33:10 PM"},{"Length":"8.0","Time":"4/4/2018 2:33:10 PM"}]},{"Username":"Test","Password":"test","Score":0,"Status":"normal","Logins":[{"Length":"7.08","Time":"4/4/2018 3:20:42 PM"},{"Length":"0.83s","Time":"4/4/2018 4:59:08 PM"}]},{"Username":"New","Password":"test","Score":0,"Status":"normal","Logins":[]}]}
+{
+  "Users": [
+    {
+      "Username": "admin",
+      "Password": "admin",
+      "Score": 5,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "1.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "2.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "13.39",
+          "Time": "4/4/2018 2:59:12 PM"
+        },
+        {
+          "Length": "9.53",
+          "Time": "4/4/2018 2:59:38 PM"
+        },
+        {
+          "Length": "5.82",
+          "Time": "4/4/2018 3:01:00 PM"
+        },
+        {
+          "Length": "49.51",
+          "Time": "4/4/2018 3:10:28 PM"
+        },
+        {
+          "Length": "79.83",
+          "Time": "4/4/2018 3:11:34 PM"
+        },
+        {
+          "Length": "26.99s",
+          "Time": "4/4/2018 4:44:16 PM"
+        },
+        {
+          "Length": "9.35s",
+          "Time": "4/4/2018 4:49:13 PM"
+        },
+        {
+          "Length": "9.50s",
+          "Time": "4/4/2018 4:49:13 PM"
+        },
+        {
+          "Length": "9.69s",
+          "Time": "4/4/2018 4:49:13 PM"
+        },
+        {
+          "Length": "9.84s",
+          "Time": "4/4/2018 4:49:13 PM"
+        },
+        {
+          "Length": "9.97s",
+          "Time": "4/4/2018 4:49:13 PM"
+        },
+        {
+          "Length": "10.11s",
+          "Time": "4/4/2018 4:49:13 PM"
+        },
+        {
+          "Length": "10.24s",
+          "Time": "4/4/2018 4:49:14 PM"
+        },
+        {
+          "Length": "10.71s",
+          "Time": "4/4/2018 4:49:14 PM"
+        },
+        {
+          "Length": "10.89s",
+          "Time": "4/4/2018 4:49:14 PM"
+        },
+        {
+          "Length": "11.06s",
+          "Time": "4/4/2018 4:49:14 PM"
+        },
+        {
+          "Length": "10.13s",
+          "Time": "4/4/2018 7:30:23 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Eric",
+      "Password": "newpassword",
+      "Score": 0,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "3.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "4.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "183.32s",
+          "Time": "4/4/2018 4:32:09 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Abdul",
+      "Password": "password",
+      "Score": 0,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "5.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "6.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Parker",
+      "Password": "password",
+      "Score": 0,
+      "Status": "new",
+      "Logins": [
+        {
+          "Length": "17.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        },
+        {
+          "Length": "8.0",
+          "Time": "4/4/2018 2:33:10 PM"
+        }
+      ]
+    },
+    {
+      "Username": "Test",
+      "Password": "test",
+      "Score": 0,
+      "Status": "normal",
+      "Logins": [
+        {
+          "Length": "7.08",
+          "Time": "4/4/2018 3:20:42 PM"
+        },
+        {
+          "Length": "0.83s",
+          "Time": "4/4/2018 4:59:08 PM"
+        }
+      ]
+    },
+    {
+      "Username": "New",
+      "Password": "test",
+      "Score": 0,
+      "Status": "normal",
+      "Logins": []
+    }
+  ]
+}

@@ -11,20 +11,24 @@ public class Users : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        string path = Application.streamingAssetsPath + "/userData.json";
-        string jsonString = File.ReadAllText(path);
-        userData data = JsonUtility.FromJson<userData>(jsonString);
-        
-        foreach (User user in data.Users)
+
+        if (CurrentUser == null)
         {
-            users.Add(user.Username, user);
-            Debug.Log(user.Username);
-            foreach (SessionLogObject session in user.Logins)
+            string path = Application.streamingAssetsPath + "/userData.json";
+            string jsonString = File.ReadAllText(path);
+            userData data = JsonUtility.FromJson<userData>(jsonString);
+
+            foreach (User user in data.Users)
             {
-                Debug.Log("Length: " + session.Length + "\t Time: " + session.Time);
+                users.Add(user.Username, user);
+                Debug.Log(user.Username);
+                foreach (SessionLogObject session in user.Logins)
+                {
+                    Debug.Log("Length: " + session.Length + "\t Time: " + session.Time);
+                }
             }
-        }
-        DumpUsers();
+            DumpUsers();
+        } 
     }
 
     public static Boolean ContainsUser(string name)
@@ -185,13 +189,4 @@ public class User
         get { return this.Score; }
         set { this.Score = value; }
     }
-}
-
-public class GameLog
-{
-    DateTime date;
-    int score;
-    string sessionLength;
-    int highestLevel;   //Spaceshooter game only
-
 }

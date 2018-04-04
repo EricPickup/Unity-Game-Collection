@@ -21,24 +21,28 @@ public class PackageMenu : MonoBehaviour {
 
     public void SpaceButtonClick()
     {
+        FileMenuManager.canvasHistory.Push(PackageCanvas);
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         SceneManager.LoadScene("_Main_Menu_Scene");
     }
 
     public void MemoryGameClick()
     {
+        FileMenuManager.canvasHistory.Push(PackageCanvas);
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         SceneManager.LoadScene("Menu");
     }
 
     public void ApplePickerClick()
     {
+        FileMenuManager.canvasHistory.Push(PackageCanvas);
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(9);
     }
 
     public void RPSClick()
     {
+        FileMenuManager.canvasHistory.Push(PackageCanvas);
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
         SceneManager.LoadScene(7);
     }
