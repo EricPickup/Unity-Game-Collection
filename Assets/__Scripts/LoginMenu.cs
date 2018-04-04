@@ -13,6 +13,8 @@ public class LoginMenu : MonoBehaviour {
 
     public Canvas LoginCanvas;
     public Canvas PackageCanvas;
+    public Canvas ChangePasswordCanvas;
+    public Text ChangePasswordText;
 
     public AudioSource ButtonClickSound;
 
@@ -43,8 +45,17 @@ public class LoginMenu : MonoBehaviour {
                 Users.CurrentUser = Users.GetUser(usernameField.text);
                 Users.currentUserStartTime = Time.time;
                 LoginCanvas.gameObject.SetActive(false);
-                PackageCanvas.gameObject.SetActive(true);
-
+                if (Users.CurrentUser.status == "new")
+                {
+                    ChangePasswordCanvas.gameObject.SetActive(true);
+                    ChangePasswordText.color = Color.cyan;
+                    ChangePasswordText.text = "As a new user, you must update your password!";
+                    Users.CurrentUser.status = "normal";
+                    FileMenuManager.canvasHistory.Push(PackageCanvas);
+                } else
+                {
+                    PackageCanvas.gameObject.SetActive(true);
+                }
 
             } else
             {
