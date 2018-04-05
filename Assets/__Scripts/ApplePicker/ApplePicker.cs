@@ -47,9 +47,9 @@ public class ApplePicker : MonoBehaviour {
         {
             if (Users.CurrentUser == null)
             {
-                ApplePickerMenu.logs.Add(new GameLog("admin", System.DateTime.Now.ToString(), Basket.staticScore, "n/a"));
+                ApplePickerMenu.logs.Add(new GameLog("admin", System.DateTime.Now.ToString(), Basket.staticScore.ToString(), "n/a"));
             } else {
-                ApplePickerMenu.logs.Add(new GameLog(Users.CurrentUser.username, System.DateTime.Now.ToString(), Basket.staticScore, "n/a"));
+                ApplePickerMenu.logs.Add(new GameLog(Users.CurrentUser.username, System.DateTime.Now.ToString(), Basket.staticScore.ToString(), "n/a"));
             }
             SaveGameData();
             Basket.staticScore = 0;

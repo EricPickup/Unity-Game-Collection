@@ -50,6 +50,8 @@ public class ApplePickerMenu : MonoBehaviour {
         SceneManager.LoadScene(6);
     }
 
+
+
     public void HistoryMenuButtonClick()
     {
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
@@ -82,7 +84,7 @@ public class ApplePickerMenu : MonoBehaviour {
         if (MenuCanvas.gameObject.activeInHierarchy)
         {
             HideAllCanvas();
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene(7);
         } else
         {
             HideAllCanvas();
@@ -114,10 +116,10 @@ public class GameLog
 {
     public string Username;
     public string Date;
-    public int Score;
+    public string Score;
     public string HighestLevel; //Space-shooter only
 
-    public GameLog(string u, string d, int s, string h)
+    public GameLog(string u, string d, string s, string h)
     {
         this.Username = u;
         this.Date = d;

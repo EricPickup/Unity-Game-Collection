@@ -37,14 +37,14 @@ public class PackageMenu : MonoBehaviour {
     {
         FileMenuManager.canvasHistory.Push(PackageCanvas);
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(8);
     }
 
     public void RPSClick()
     {
         FileMenuManager.canvasHistory.Push(PackageCanvas);
         ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(6);
     }
 
     public void FileClick()

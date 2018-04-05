@@ -1396,7 +1396,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Number of Pairs: 10
-
 '
 --- !u!222 &1133209826
 CanvasRenderer:

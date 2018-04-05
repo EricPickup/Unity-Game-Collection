@@ -125,7 +125,17 @@ public class GameManager : MonoBehaviour {
             if (_pairs == 0)  //Win (no pairs left)
             {
                 winSource.PlayOneShot(winSound);
+                if (Users.CurrentUser == null )
+                {
+                    MenuBehaviour.logs.Add(new GameLog("admin", System.DateTime.Now.ToString(), _score.ToString(), "n/a"));
+                } else
+                {
+                    MenuBehaviour.logs.Add(new GameLog(Users.CurrentUser.username, System.DateTime.Now.ToString(), _score.ToString(), "n/a"));
+                }
+                Debug.Log("Added to logs");
+                MenuBehaviour.SaveGameData();
                 StartCoroutine(GameOverPause(4));
+                
             } else //If not a win
             {
                 matchSource.PlayOneShot(matchSound);

@@ -1,9 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PackageManager : MonoBehaviour {
+
+    public Canvas MenuCanvas;
+    public Canvas GameCanvas;
+
+    public AudioSource ButtonClickSound;
+
+    public Canvas HistoryMenuCanvas;
+    public Dropdown HistoryDropdown;
 
     enum elements { Scissor = 1, Paper, Rock }
 
@@ -27,10 +37,24 @@ public class PackageManager : MonoBehaviour {
     private int numPlayerWins = 0;
     private int numTurns = 0;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public static List<GameLog> logs = new List<GameLog>();
+
+    public Button MenuButton;
+
+    // Use this for initialization
+    void Start () {
+        string path = Application.streamingAssetsPath + "/rpsLogs.json";
+        string jsonString = File.ReadAllText(path);
+        gameDataRPS data = JsonUtility.FromJson<gameDataRPS>(jsonString);
+        logs.Clear();
+        if (!(data == null))
+        {
+            foreach (GameLog log in data.RockPaperScissors)
+            {
+                logs.Add(log);
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,6 +67,67 @@ public class PackageManager : MonoBehaviour {
         playerChoice = -1;
         playersTurn = true;
 	}
+
+    public void StartButtonClick()
+    {
+        FileMenuManager.canvasHistory.Push(MenuCanvas);
+        MenuButton.gameObject.SetActive(false);
+        MenuCanvas.gameObject.SetActive(false);
+        GameCanvas.gameObject.SetActive(true);
+        ResetGame();
+        rockButton.gameObject.SetActive(true);
+        paperButton.gameObject.SetActive(true);
+        scissorButton.gameObject.SetActive(true);
+    }
+
+    public void HistoryMenuButtonClick()
+    {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
+        FileMenuManager.canvasHistory.Push(MenuCanvas);
+        HideAllCanvas();
+
+        HistoryDropdown.ClearOptions();
+        LoadHistoryDropdown();
+
+        HistoryMenuCanvas.gameObject.SetActive(true);
+        HistoryDropdown.Show();
+    }
+
+    public void LoadHistoryDropdown()
+    {
+        HistoryDropdown.ClearOptions();
+        string header = string.Format("{0,-20}{1,-30}{2,-20}", "Username", "Date", "Score");
+        HistoryDropdown.options.Add(new Dropdown.OptionData() { text = header });
+
+        foreach (GameLog log in logs)
+        {
+            string currentLog = string.Format("{0,-20}{1,-30}{2,-20}", log.Username, log.Date, log.Score);
+            HistoryDropdown.options.Add(new Dropdown.OptionData() { text = currentLog });
+        }
+    }
+
+    public void BackToFileButtonClick()
+    {
+        ButtonClickSound.PlayOneShot(ButtonClickSound.clip, 1.0f);
+        if (MenuCanvas.gameObject.activeInHierarchy)
+        {
+            HideAllCanvas();
+            SceneManager.LoadScene(7);
+        }
+        else
+        {
+            HideAllCanvas();
+            FileMenuManager.canvasHistory.Pop().gameObject.SetActive(true);
+        }
+
+    }
+
+    public void HideAllCanvas()
+    {
+        MenuCanvas.gameObject.SetActive(false);
+        HistoryMenuCanvas.gameObject.SetActive(false);
+        GameCanvas.gameObject.SetActive(false);
+    }
 
     //Determines the winner of the current term, sets the appropriate text/color
     void TurnWinner()
@@ -106,9 +191,29 @@ public class PackageManager : MonoBehaviour {
                 winner = "Tie";
             }
             FinalWinner.GetComponent<Text>().text = "FINAL WINNER: " + winner;
-            Application.Quit();
+            if (Users.CurrentUser == null) {
+                logs.Add(new GameLog("admin", System.DateTime.Now.ToString(), winner, "n/a"));
+            } else
+            {
+                logs.Add(new GameLog(Users.CurrentUser.username, System.DateTime.Now.ToString(), winner, "n/a"));
+            }
+            rockButton.gameObject.SetActive(false);
+            paperButton.gameObject.SetActive(false);
+            scissorButton.gameObject.SetActive(false);
+            SaveGameData();
+            MenuButton.gameObject.SetActive(true);
         }
   
+    }
+
+    public void ResetGame()
+    {
+        botChooseImage.GetComponent<Image>().sprite = null;
+        WinnerText.GetComponent<Text>().text = "";
+        FinalWinner.GetComponent<Text>().text = "";
+        numBotWins = 0;
+        numPlayerWins = 0;
+        numTurns = 0;
     }
 
     //Retrieves choice from player interacting with UI
@@ -142,5 +247,28 @@ public class PackageManager : MonoBehaviour {
         TurnCount.GetComponent<Text>().text = "Turn: " + numTurns;
     }
 
+    public void SaveGameData()
+    {
+        gameDataRPS newData = new gameDataRPS();
+        string path = Application.streamingAssetsPath + "/rpsLogs.json";
+        foreach (GameLog log in logs)
+        {
+            newData.Add(log);
+        }
+        Debug.Log(JsonUtility.ToJson(newData));
+        File.WriteAllText(path, JsonUtility.ToJson(newData));
+    }
 
+
+}
+
+[System.Serializable]
+public class gameDataRPS
+{
+    public List<GameLog> RockPaperScissors = new List<GameLog>();
+
+    public void Add(GameLog log)
+    {
+        RockPaperScissors.Add(log);
+    }
 }

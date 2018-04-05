@@ -1,1 +1,88 @@
-{"ApplePicker":[{"Username":"admin","Date":"4/4/2018 6:37:11 PM","Score":300,"HighestLevel":"na"},{"Username":"admin","Date":"4/4/2018 6:37:23 PM","Score":100,"HighestLevel":"na"},{"Username":"admin","Date":"4/4/2018 7:02:43 PM","Score":0,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:06:40 PM","Score":0,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 6:37:11 PM","Score":300,"HighestLevel":"na"},{"Username":"admin","Date":"4/4/2018 6:37:23 PM","Score":100,"HighestLevel":"na"},{"Username":"admin","Date":"4/4/2018 7:02:43 PM","Score":0,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:06:40 PM","Score":0,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:06:49 PM","Score":200,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:08:07 PM","Score":0,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:09:02 PM","Score":0,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:10:10 PM","Score":100,"HighestLevel":"n/a"},{"Username":"Eric","Date":"4/4/2018 7:13:47 PM","Score":500,"HighestLevel":"n/a"},{"Username":"admin","Date":"4/4/2018 7:31:00 PM","Score":100,"HighestLevel":"n/a"}]}
+{
+  "ApplePicker": [
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 6:37:11 PM",
+      "Score": 300,
+      "HighestLevel": "na"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 6:37:23 PM",
+      "Score": 100,
+      "HighestLevel": "na"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:02:43 PM",
+      "Score": 0,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:06:40 PM",
+      "Score": 0,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 6:37:11 PM",
+      "Score": 300,
+      "HighestLevel": "na"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 6:37:23 PM",
+      "Score": 100,
+      "HighestLevel": "na"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:02:43 PM",
+      "Score": 0,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:06:40 PM",
+      "Score": 0,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:06:49 PM",
+      "Score": 200,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:08:07 PM",
+      "Score": 0,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:09:02 PM",
+      "Score": 0,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:10:10 PM",
+      "Score": 100,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "Eric",
+      "Date": "4/4/2018 7:13:47 PM",
+      "Score": 500,
+      "HighestLevel": "n/a"
+    },
+    {
+      "Username": "admin",
+      "Date": "4/4/2018 7:31:00 PM",
+      "Score": 100,
+      "HighestLevel": "n/a"
+    }
+  ]
+}

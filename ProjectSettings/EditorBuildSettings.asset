@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/SpaceShooter/_Main_Menu_Scene.unity
     guid: e6fbb95e18e254fa389d034d9aacb7d9
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/_Package_Menu.unity
     guid: dc77d52335f648a44bfb6c64db728df5
   - enabled: 1
