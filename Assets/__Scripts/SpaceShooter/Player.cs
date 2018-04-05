@@ -138,7 +138,16 @@ public class Player : MonoBehaviour {
 		}
 		set {
 			_shieldLevel = Mathf.Min(value, 4);
-			if (value < 0){
+			if (value < 0){ //game 
+                if (Users.CurrentUser == null)
+                {
+                    MenuManager.logs.Add(new GameLog("admin", System.DateTime.Now.ToString(), Main.score.ToString(), Main.lvl.ToString()));
+                } else
+                {
+                    MenuManager.logs.Add(new GameLog(Users.CurrentUser.username, System.DateTime.Now.ToString(), Main.score.ToString(), Main.lvl.ToString()));
+                }
+                
+                MenuManager.SaveGameData();
 				Destroy(this.gameObject);
 				Main.S.DelayedRestart(gameRestartDelay);
 			}

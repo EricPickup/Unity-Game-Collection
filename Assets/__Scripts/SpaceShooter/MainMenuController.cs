@@ -11,7 +11,8 @@ public class Level{
 	private ArrayList enemies;
 	private bool shootingEnabled;
 
-	public Level(string name, int score){
+
+    public Level(string name, int score){
 		this.name = name;
 		this.topScore = score;
 		this.shootingEnabled = true;
@@ -112,12 +113,24 @@ public class MainMenuController : MonoBehaviour {
 	public InputField[] EnemyScores;
 	public Dropdown[] EnemyColors;
 
+    public Dropdown BronzeDropdown;
+    public Dropdown SilverDropdown;
+    public Dropdown GoldDropdown;
+    public static int BronzeBG;
+    public static int SilverBG;
+    public static int GoldBG;
+
 	public AudioSource BackgroundMusic;
 
 	private Settings settings = new Settings();
 
+    public Canvas ConfigCanvas;
+
+    public Sprite[] sprites;
+
 	void Start(){
-		bronze.addEnemy(0);
+
+        bronze.addEnemy(0);
 		silver.addEnemy(0);
 		silver.addEnemy(1);
 		gold.addEnemy(0);
@@ -134,11 +147,16 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	void Update(){
+        BronzeBG = BronzeDropdown.value;
+        SilverBG = SilverDropdown.value;
+        GoldBG = GoldDropdown.value;
+
 		AudioClip tmp = BackgroundMusic.clip;
 		BackgroundMusic.clip = BackgroundMusics[BackgroundMusicDropdown.value];
 		if (tmp != BackgroundMusic.clip)
 			BackgroundMusic.Play();
-	}
+       
+    }
 
 	/*
 		MAIN MENU FUNCTIONS
@@ -150,7 +168,12 @@ public class MainMenuController : MonoBehaviour {
 		GameLevels.SetActive(true);
 	}
 
-	//--------Arsh's code--------
+    public void BackButtonClick()
+    {
+        MainCanvas.SetActive(true);
+        ConfigCanvas.gameObject.SetActive(false);
+    }
+
 	public Level getBronze(){
 		return bronze;
 	}
@@ -170,7 +193,6 @@ public class MainMenuController : MonoBehaviour {
 		SceneManager.LoadScene("_Scene_0");
 	}
 
-	//------------------------
 
 	/*
 		GAME LEVELS FUNCTIONS
@@ -486,7 +508,11 @@ public class MainMenuController : MonoBehaviour {
 		pop.Play();
 		MainCanvas.SetActive(true);
 		GameLevels.SetActive(false);
-	}
+        ConfigurationFirst.SetActive(true);
+        ConfigurationMore.SetActive(false);
+        ConfigCanvas.gameObject.SetActive(false);
+        
+    }
 
 	public void ConfigurationToMoreConfig(){
 		pop.Play();		
@@ -503,5 +529,6 @@ public class MainMenuController : MonoBehaviour {
 		ConfigurationFirst.SetActive(false);
 		ConfigurationMore.SetActive(true);
 	}
+
 
 }

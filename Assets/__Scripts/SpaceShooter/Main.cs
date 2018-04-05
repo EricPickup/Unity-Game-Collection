@@ -35,8 +35,8 @@ public class Main : MonoBehaviour {
     public Material red;
 
     private BoundsCheck bndCheck;
-    private int score = 0;
-    private int lvl = BRONZE;
+    public static int score = 0;
+    public static int lvl = BRONZE;
     private Level currLvl = Settings.getLevel(BRONZE);
 
     const int BRONZE = 0;
@@ -49,8 +49,8 @@ public class Main : MonoBehaviour {
 
     public void ShipDestroyed(Enemy e, int s)
     { // c
-    	this.score+=s;
-        scoreText.GetComponent<Text>().text = "Score: " + this.score;
+    	score+=s;
+        scoreText.GetComponent<Text>().text = "Score: " + score;
         IncrementEnemyScore(e);
       // Potentially generate a PowerUp
         if (Random.value <= e.powerUpDropChance)
